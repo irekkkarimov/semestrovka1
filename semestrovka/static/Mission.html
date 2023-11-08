@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mission Page - Hitman III</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main.css">
+</head>
+<body>
+    <div class="root">
+        <div class="header" >
+            <div class="header--top">
+                <div class="header--top--buttons">
+                    <button onclick="location.href = '/login.html'" class="sign_in">SIGN IN</button>
+                    <button onclick="location.href = '/registration.html'" class="register">REGISTER</button>
+                </div>
+            </div>
+            <div class="header--bottom d-flex flex-row">
+                <img src="../../assets/hitman_whitelogo.webp"  alt="hitman_wiki"/>
+                <div class="header--bottom--hyperlinks d-flex flex-column">
+                    <div class="header--bottom--hyperlinks--top d-flex flex-row">
+                        <a href="#" class="header--bottom--hyperlinks--top--self"
+                           style="font-size: 24px; font-weight: 500; margin-left: 10px;">Hitman Wiki</a>
+                        <div class="header--bottom--hyperlinks--top--buttons d-flex flex-row">
+                            <div class="header--bottom--hyperlinks--top--buttons--page-counter d-flex flex-column"
+                                 style="line-height: 13px; margin-right: 5px; align-items: end;">
+                                <span class="page-counter__value" style="font-size: 19px; line-height: 16px; font-weight: bold;">4360</span>
+                                <span class="page-counter__label" style="font-size: 13px; margin-bottom: 0; font-weight: bold;">PAGES</span>
+
+                            </div>
+                            <div class="header--bottom-hyperlinks--top--buttons--cells d-flex flex-row">
+                                <div class="hyperlinks--cells--cell"></div>
+                                <div class="hyperlinks--cells--cell"></div>
+                                <div class="hyperlinks--cells--cell"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header--bottom--hyperlinks--bottom d-flex flex-row">
+                        <div class="hyperlinks--explore">EXPLORE</div>
+                        <div class="hyperlinks--wOfA">WORLD OF ASSASSINATION</div>
+                        <div class="hyperlinks--games">GAMES</div>
+                        <div class="hyperlinks--other">OTHER MEDIA</div>
+                        <div class="hyperlinks--community">COMMUNITY</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content" style="margin-top: 15px">
+            <div class="content-master d-flex flex-row">
+                <div class="content-left d-flex flex-column" style="padding: 30px 40px 30px 40px">
+                    <div class="main">
+                        <div class="main--first-line d-flex flex-row">
+                            <div class="main--first-line--left d-flex flex-row">
+                                <p>
+                                    in:
+                                    <a href="#" class="a-green">HITMAN™ III Missions</a>,
+                                </p>
+                            </div>
+                            <div class="main--first-line--right">
+                                <div class="main--first-line--right--lang">
+                                    <p>English</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main--header">
+                            <div class="main--header--top d-flex flex-row">
+                                <h1>MISSION_TITLE</h1>
+                                <div class="main--header--top--hyperlinks d-flex flex-row">
+                                    <div class="main--header--top--hyperlink"><p><a class="a-green">Chat</a></p></div>
+                                    <div class="main--header--top--hyperlink"><p>
+                                        <a class="a-green" style="font-size: 12px; font-weight: bold;">SIGN TO EDIT</a>
+                                    </p></div>
+                                    <div class="main--header--top--dots">||</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main--info d-flex flex-row" style="justify-content:space-between;">
+                            <div class="main--info--left" style="width: 61%; box-sizing: border-box;">
+                                <div class="mission-paragraph d-flex flex-row">
+                                    <img src="../../assets/mission_icon.webp" alt="Mission" style="align-self: start; margin-right: 20px; box-sizing: border-box"/>
+                                    <p class="mission-paragraph" style="display: inline-block">
+                                        MISSION_DESCRIPTION
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="main--info--right d-flex flex-column" style="width: 37%; box-sizing: border-box; align-items: center;">
+                                <div class="main--info--right--top" style="font-weight: bold; margin-bottom: 10px;">
+                                    <p style="font-size: 18px;">MISSION_TITLE</p>
+                                </div>
+                                <img src="MISSION_IMAGE" alt="End of an Era" class="mission-picture">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

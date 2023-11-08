@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - Hitman III</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+<div class="root">
+    <div class="header" >
+        <div class="header--top">
+            <div class="header--top--buttons">
+                <button onclick="location.href = '/login.html'" class="sign_in">SIGN IN</button>
+                <button onclick="location.href = '/registration.html'" class="register">REGISTER</button>
+            </div>
+        </div>
+        <div class="header--bottom d-flex flex-row">
+            <img src="./assets/hitman_whitelogo.webp"  alt="hitman_wiki"/>
+            <div class="header--bottom--hyperlinks d-flex flex-column">
+                <div class="header--bottom--hyperlinks--top d-flex flex-row">
+                    <a href="#" class="header--bottom--hyperlinks--top--self"
+                       style="font-size: 24px; font-weight: 500; margin-left: 10px;">Hitman Wiki</a>
+                    <div class="header--bottom--hyperlinks--top--buttons d-flex flex-row">
+                        <div class="header--bottom--hyperlinks--top--buttons--page-counter d-flex flex-column"
+                             style="line-height: 13px; margin-right: 5px; align-items: end;">
+                            <span class="page-counter__value" style="font-size: 19px; line-height: 16px; font-weight: bold;">4360</span>
+                            <span class="page-counter__label" style="font-size: 13px; margin-bottom: 0; font-weight: bold;">PAGES</span>
+
+                        </div>
+                        <div class="header--bottom-hyperlinks--top--buttons--cells d-flex flex-row">
+                            <div class="hyperlinks--cells--cell"></div>
+                            <div class="hyperlinks--cells--cell"></div>
+                            <div class="hyperlinks--cells--cell"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header--bottom--hyperlinks--bottom d-flex flex-row">
+                    <div class="hyperlinks--explore">EXPLORE</div>
+                    <div class="hyperlinks--wOfA">WORLD OF ASSASSINATION</div>
+                    <div class="hyperlinks--games">GAMES</div>
+                    <div class="hyperlinks--other">OTHER MEDIA</div>
+                    <div class="hyperlinks--community">COMMUNITY</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content" style="margin-top: 15px">
+        <div class="content-master d-flex flex-row">
+            <div class="content-left d-flex flex-column" style="padding: 30px 40px 30px 40px">
+                <div class="main">
+                    <div class="main--header d-flex flex-row" style="align-items: center; justify-content:space-between;">
+                        <h1 style="margin: 0;">Admin Panel</h1>
+                        <div class="main--header--top--hyperlinks d-flex flex-row">
+                            <div><p><a class="a-green">Go to HITMAN III</a></p></div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="paragraphs">
+                        
+                    </div>
+                    <div class="missions">
+                        <div class="missions--header d-flex flex-row" style="justify-content: space-between; align-items: center;">
+                            <h2>Missions</h2>
+                            <div class="missions--header--right d-flex flex-row admin-panel--buttons">
+                                <button>Add a mission</button>
+                                <form class="admin-panel--form">
+                                    <button>Delete Mission</button>
+                                    <input type="number">
+                                </form>
+                            </div>
+                        </div>
+                        <table class="missions--table" style="margin-left: 10px; margin-right: 100px;">
+                            <thead style="border-bottom: 1px solid grey;">
+                            <tr>
+                                <th colspan="1">Id</th>
+                                <th colspan="1">Image</th>
+                                <th colspan="1">Missions</th>
+                                <th colspan="3">Location</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><img src="./assets/dubai.webp"></td>
+                                <td><a href="#" class="a-green">On Top of the World</a></td>
+                                <td>Asia</td>
+                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
+                                <td><a href="#" class="a-green">Dubai</a></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><img src="./assets/dubai.webp"></td>
+                                <td><a href="#" class="a-green">On Top of the World</a></td>
+                                <td>Asia</td>
+                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
+                                <td><a href="#" class="a-green">Dubai</a></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><img src="./assets/dubai.webp"></td>
+                                <td><a href="#" class="a-green">On Top of the World</a></td>
+                                <td>Asia</td>
+                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
+                                <td><a href="#" class="a-green">Dubai</a></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><img src="./assets/dubai.webp"></td>
+                                <td><a href="#" class="a-green">On Top of the World</a></td>
+                                <td>Asia</td>
+                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
+                                <td><a href="#" class="a-green">Dubai</a></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><img src="./assets/dubai.webp"></td>
+                                <td><a href="#" class="a-green">On Top of the World</a></td>
+                                <td>Asia</td>
+                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
+                                <td><a href="#" class="a-green">Dubai</a></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><img src="./assets/dubai.webp"></td>
+                                <td><a href="#" class="a-green">On Top of the World</a></td>
+                                <td>Asia</td>
+                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
+                                <td><a href="#" class="a-green">Dubai</a></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><img src="./assets/dubai.webp"></td>
+                                <td><a href="#" class="a-green">On Top of the World</a></td>
+                                <td>Asia</td>
+                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
+                                <td><a href="#" class="a-green">Dubai</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr style="margin-top: 20px; margin-bottom: 20px;">
+                    <div class="screenshots">
+                        <div class="screenshots--header d-flex flex-row" style="justify-content: space-between; align-items: center;">
+                            <h2>Screenshots</h2>
+                            <div class="screenshots--header--right d-flex flex-row admin-panel--buttons">
+                                <button>Add a screenshot</button>
+                                <form class="admin-panel--form">
+                                    <button>Delete Screenshot</button>
+                                    <input type="number">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="gallery--promotional"
+                             style="width: 90%; display: flex; flex-wrap: wrap; margin-left: 20px; margin-bottom: 40px;">
+                            <div class="screenshot--card">
+                                <img src="./assets/screenshot_1.webp" alt="Picture" />
+                                <p><span>[ 1 ]</span> Dramatic conclusion screenshot.</p>
+                            </div>
+                            <div class="screenshot--card">
+                                <img src="./assets/screenshot_1.webp" alt="Picture" />
+                                <p><span>[ 1 ]</span> Dramatic conclusion screenshot.</p>
+                            </div>
+                            <div class="screenshot--card">
+                                <img src="./assets/screenshot_1.webp" alt="Picture" />
+                                <p><span>[ 1 ]</span> Dramatic conclusion screenshot.</p>
+                            </div>
+                            <div class="screenshot--card">
+                                <img src="./assets/screenshot_1.webp" alt="Picture" />
+                                <p><span>[ 1 ]</span> Dramatic conclusion screenshot.</p>
+                            </div>
+                            <div class="screenshot--card">
+                                <img src="./assets/screenshot_1.webp" alt="Picture" />
+                                <p><span>[ 1 ]</span> Dramatic conclusion screenshot.</p>
+                            </div>
+                            <div class="screenshot--card">
+                                <img src="./assets/screenshot_1.webp" alt="Picture" />
+                                <p><span>[ 1 ]</span> Dramatic conclusion screenshot.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="videos">
+                        <div class="missions--header d-flex flex-row" style="justify-content: space-between; align-items: center;">
+                            <h2>Videos</h2>
+                            <div class="screenshots--header--right d-flex flex-row admin-panel--buttons">
+                                <button>Add a video</button>
+                                <form class="admin-panel--form">
+                                    <button>Delete video</button>
+                                    <input type="number">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="gallery--videos"
+                             style="width: 90%; display: flex; flex-wrap: wrap; margin-left: 20px; margin-bottom: 100px;">
+                            <div class="videos--card">
+                                <img src="./assets/video_1.webp" alt="Picture" />
+                                <p><span>[ 1 ]</span> HITMAN 3 - Announcement Trailer</p>
+                            </div>
+                            <div class="videos--card">
+                                <img src="./assets/video_1.webp" alt="Picture" />
+                                <p><span>[ 1 ]</span> HITMAN 3 - Announcement Trailer</p>
+                            </div>
+                            <div class="videos--card">
+                                <img src="./assets/video_1.webp" alt="Picture" />
+                                <p><span>[ 1 ]</span> HITMAN 3 - Announcement Trailer</p>
+                            </div>
+                            <div class="videos--card">
+                                <img src="./assets/video_1.webp" alt="Picture" />
+                                <p><span>[ 1 ]</span> HITMAN 3 - Announcement Trailer</p>
+                            </div>
+                            <div class="videos--card">
+                                <img src="./assets/video_1.webp" alt="Picture" />
+                                <p><span>[ 1 ]</span> HITMAN 3 - Announcement Trailer</p>
+                            </div>
+                            <div class="videos--card">
+                                <img src="./assets/video_1.webp" alt="Picture" />
+                                <p><span>[ 1 ]</span> HITMAN 3 - Announcement Trailer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

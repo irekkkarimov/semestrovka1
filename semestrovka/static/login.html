@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authorization - Hitman III</title>
+</head>
+<body>
+    <div class="main-outer" style="display: flex; justify-content:center;">
+        <div class="main" style="border: 2px solid grey; padding: 0 20px 20px 20px; margin-top: 100px;">
+            <h2>Authorization</h2>
+            <div class="hr" style="height: 1px; background-color: darkgrey; margin: 0 -20px 30px -20px;"></div>
+            <form style="display: flex; flex-direction: column" method="post" action="/user/login">
+                <label for="email"
+                    style="margin-bottom: 5px;">
+                    Email:
+                </label>
+                <input id="email" name="email" type="email" style="margin-bottom: 30px; padding: 6px 9px; font-size: 16px;">
+                <label for="password">Password:
+                </label>
+                <input id="password" name="password" type="password" style="margin-bottom: 30px; padding: 6px 9px; font-size: 16px;">
+                <div style="display: flex; align-items: center; justify-content:space-between;">
+                    <p style="width: 50%; margin: 0;">Dont have an account? <span>
+                        <a href="./Registration.html" 
+                            style="text-decoration: none; color: #000; font-weight: bold;">Register!</a></span></p>
+                    <button type="submit" style="padding: 8px 15px; font-size: 16px; font-weight: bold; align-self: end;">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding mission - HITMAN III</title>
+    <link rel="stylesheet" href="./styles/main.css"/>
+</head>
+<body>
+<div class="main-outer" style="display: flex; justify-content:center;">
+    <div class="main addPage--main">
+        <h2>Adding mission</h2>
+        <div class="hr" style="height: 1px; background-color: darkgrey; margin: 0 -20px 30px -20px;"></div>
+        <form class="addPage--form" method="post" action="/mission/add">
+            <label for="title" class="addPage--label">Title:</label>
+            <input id="title" name="title" type="text" class="addPage--input">
+            <label for="continent">Continent:</label>
+            <input id="continent" name="continent" type="text" class="addPage--input">
+            <label for="country">Country:</label>
+            <input id="country" name="country" type="text" class="addPage--input">
+            <label for="city">Country:</label>
+            <input id="city" name="city" type="text" class="addPage--input">
+            <label for="description">Description of a mission:</label>
+            <textarea id="description" name="description" class="addPage--textarea"></textarea>
+            <label for="img">Image url:</label>
+            <input id="img" name="img" type="text" class="addPage--input">
+            <label for="userid">User id:</label>
+            <input id="userid" name="userid" type="number" class="addPage--input">
+            <div class="addPage--submit-div">
+                <button type="submit" class="addPage--submit">Add mission</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

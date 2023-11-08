@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "semestrovka", "semestrovka\semestrovka.csproj", "{8342D7BE-5129-44C6-9492-5EE5B548081F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyORM", "MyORM\MyORM.csproj", "{521C164C-E0EB-42AC-964E-3728519ACF31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8342D7BE-5129-44C6-9492-5EE5B548081F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8342D7BE-5129-44C6-9492-5EE5B548081F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8342D7BE-5129-44C6-9492-5EE5B548081F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8342D7BE-5129-44C6-9492-5EE5B548081F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{521C164C-E0EB-42AC-964E-3728519ACF31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{521C164C-E0EB-42AC-964E-3728519ACF31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{521C164C-E0EB-42AC-964E-3728519ACF31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{521C164C-E0EB-42AC-964E-3728519ACF31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

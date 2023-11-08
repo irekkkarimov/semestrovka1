@@ -1,0 +1,581 @@
+* {
+    font-family: "Rubik", sans-serif;
+    color: #e6e6e6;
+}
+
+a {
+    font-family: "Rubik", sans-serif;
+    font-size: 16px;
+    color: white;
+}
+
+h1 {
+    font-weight: lighter;
+}
+
+p {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+ol, ul {
+    margin: 0;
+}
+
+.a-green {
+    color: #a4c5b1;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+
+
+body {
+    background-image: url("../assets/background-ps.png");
+    background-color: #1c2220;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-size: 20px;
+    color: white;
+    margin: 0;
+}
+
+.root {
+    width: 1236px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    width: 100%;
+}
+
+.header--top {
+    display: flex;
+    justify-content: end;
+}
+
+.header--top--buttons {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.header--top--buttons > button {
+    box-sizing: border-box;
+    padding: 8px 15px;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+}
+
+.sign_in {
+    background: transparent;
+    border: 1px solid white;
+}
+
+.register {
+    background-color: #505650;
+    border: none;
+    margin-left: 5px;
+}
+
+
+.header--bottom--hyperlinks {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.header--bottom--hyperlinks--top {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header--bottom-hyperlinks--top--buttons--cells {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-radius: 3px;
+}
+
+.hyperlinks--cells--cell {
+    width: 27px;
+    height: 27px;
+    border-right: 1px solid white;
+}
+
+.header--bottom--hyperlinks--bottom {
+}
+
+.header--bottom--hyperlinks--bottom > div {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0 15px 0 10px;
+}
+
+.content-master {
+    justify-content: space-between;
+}
+
+.content-left {
+    width: 73%;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+.content-right {
+    width: 27%;
+    box-sizing: border-box;
+    align-items: center;
+    background-color: #3a3a3a
+}
+
+.main--first-line {
+    justify-content: space-between;
+}
+
+.main--header--top {
+    justify-content: space-between;
+}
+
+.main--header--top {
+    align-items: center;
+}
+
+.main--header--top--hyperlinks {
+    height: 20px;
+}
+
+.main--header--top--hyperlink {
+    border-right: 1px solid grey;
+    padding: 0 10px 0 10px;
+}
+
+.main--header--top--dots {
+    padding-left: 10px;
+}
+
+.main--info--left {
+    margin-right: 20px;
+}
+
+.main--info--left--paragraph {
+    font-size: 16px;
+    margin-bottom: 40px;
+    line-height: 29px;
+}
+
+.main--info--left--paragraph > span {
+    font-style: italic;
+}
+
+.main--info--left--list {
+    width: 45%;
+    box-sizing: border-box;
+    border: 1px solid grey;
+    border-radius: 3px;
+    font-size: 18px;
+}
+
+.main--info--left--list--header {
+    padding: 10px 10px 10px 10px;
+    font-weight: bold;
+    border-bottom: 1px solid grey;
+}
+
+.main--info--left--list--content {
+    padding: 10px 0 10px 0;
+    line-height: 30px;
+}
+
+.main--info--right {
+
+}
+
+.main--info--right--game-info {
+    width: 100%;
+    font-size: 14px;
+}
+
+.main--info--right--game-info a {
+    font-size: 14px;
+    color: #a4c5b1;
+}
+
+.main--info--right--game-info ul {
+    box-sizing: border-box;
+    padding-left: 16px;
+}
+
+.main--info--right--game-info > p {
+    margin-bottom: 5px;
+}
+
+.main--info--right--game-info > div {
+    margin-bottom: 25px;
+}
+
+.main--info--left--gamespot {
+    margin-top: 30px;
+}
+
+.main--info--left--gamesport--cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gamespot--card {
+    width: 200px;
+    font-size: 12px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+}
+
+.gamespot--card a {
+    font-size: 17px;
+    margin-bottom: 4px;
+}
+
+.gamespot--card img {
+    border-radius: 3px 3px 0 0;
+    border: 1px solid grey;
+    border-bottom: 3px solid grey;
+    margin-bottom: 5px;
+}
+
+.overview {
+    font-size: 18px;
+}
+
+.overview a, .plot a, .updates a {
+    font-size: 17px;
+}
+
+.overview h3 {
+    font-weight: bold;
+}
+
+.paragraph {
+    font-size: 16px;
+    line-height: 29px;
+    margin-bottom: 30px;
+}
+
+.missions {
+
+}
+
+.missions--table {
+    width: 90%;
+    font-size: 17px;
+}
+
+table td {
+    padding: 6px 12px;
+}
+
+table tr {
+    border-bottom: 1px solid grey;
+}
+
+tr {
+
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.screenshot--card {
+    width: 200px;
+    font-size: 12px;
+    margin-right: 25px;
+    margin-bottom: 40px;
+}
+
+.screenshot--card p {
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.screenshot--card img {
+    border: 1px solid grey;
+    margin-bottom: 5px;
+}
+
+.videos--card {
+    width: 200px;
+    font-size: 12px;
+    margin-right: 25px;
+    margin-bottom: 40px;
+}
+
+.videos--card p {
+    width: 80%;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.videos--card img {
+    border: 1px solid grey;
+    margin-bottom: 5px;
+}
+
+.references > ol > li > a, .references > ol > li {
+    font-size: 16px;
+}
+
+.references--series {
+    align-items: center;
+}
+
+.series--content--left p {
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.series--content--right p, .series--content--right a {
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.series--content--line {
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.series--content--line--left {
+    width: 22%;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 20px 0 20px;
+}
+
+.series--content--line--right {
+    width: 78%;
+}
+
+.series--content--line--right a {
+    font-size: 16px;
+}
+
+.other--categories, .other--languages {
+    font-size: 12px;
+}
+
+.other--comments {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-right > hr {
+    width: 90%;
+}
+
+.content-right--images--scroller {
+    overflow-x: auto;
+}
+
+.scroller--image {
+    width: 160px;
+    line-height: 20px;
+    margin-right: 50px;
+    margin-bottom: 8px;
+}
+
+.scroller--image-normal, .scroller--image a {
+    font-size: 14px;
+}
+
+.scroller--image > img {
+    width: 200px;
+}
+
+.scroller--image-small {
+    font-size: 12px;
+}
+
+.content-right--notice {
+    width: 90%;
+    text-align: center;
+    line-height: 23px;
+}
+
+.content-right--notice p, .content-right--notice a {
+    font-size: 14px;
+}
+
+.content-right--notice--staff {
+    font-weight: bold;
+}
+
+.content-right--notice--staff p {
+    font-size: 14px;
+    line-height: 23px;
+}
+
+.content-right--notice--staff a {
+    font-size: 14px;
+}
+
+.content-right--notice--bureaucrats, .content-right--notice--administrators, .content-right--notice--moderators, .content--right--notice--wikireps {
+    text-align: center;
+}
+
+.content-right--notice--bureaucrats a {
+    color: #FF0000;
+}
+
+.content-right--notice--administrators a {
+    color: #0084D5;
+}
+
+.content-right--notice--moderators a {
+    color: #ae0dae;
+}
+
+.content--right--notice--wikireps a {
+    color: #a4c5b1;
+}
+
+.notice--staff--header {
+    color: inherit;
+}
+
+.content--right--notice--wikireps a {
+    font-weight: normal;
+}
+
+.mission-paragraph {
+    font-size: 16px;
+    margin-bottom: 40px;
+    line-height: 29px;
+}
+
+.mission-paragraph a {
+    font-size: 16px;
+    color: #a4c5b1;
+}
+
+.mission-picture {
+    width: 100%;
+}
+
+.admin-panel--buttons {
+    align-items: center;
+    width: fit-content;
+    height: 40px;
+    justify-content:space-between;
+}
+
+.admin-panel--buttons button {
+    border: 1px solid #222a2a;
+    border-radius: 5px;
+}
+
+.admin-panel--buttons > button {
+    background-color: #1c2220; 
+    height: 100%;
+    margin-right: 15px;
+}
+
+.admin-panel--form {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-panel--form button {
+    background-color: #1c2220;
+    height: 100%;
+    padding: 0 10px;
+    margin-right: 5px;
+}
+
+.admin-panel--form input {
+    width: 40px; 
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 20px;
+    color: black;
+    appearance: none; 
+    padding-left: 5px;
+    border: none;
+}
+
+.addPage--main {
+    width: 300px;
+    border: 2px solid grey;
+    padding: 0 20px 20px 20px;
+    margin-top: 100px;
+    background-color: #333232;
+}
+
+.addPage--main input, .addPage--main button {
+    color: black;
+}
+
+.addPage--form {
+    display: flex; 
+    flex-direction: column
+}
+
+.addPage--label {
+    margin-bottom: 5px;
+}
+
+.addPage--input {
+    margin-bottom: 25px;
+    padding: 6px 9px;
+    font-size: 16px;
+}
+
+.addPage--textarea {
+    max-height: 100px;
+    resize: vertical;
+    margin-bottom: 25px;
+    padding: 6px 9px;
+    color: black;
+}
+
+.addPage--submit-div {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addPage--submit {
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
