@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Adding video - HITMAN III</title>
+    <title>Adding mission - HITMAN III</title>
+    <link rel="stylesheet" href="../styles/main.css"/>
 </head>
 <body>
-
+<div class="main-outer" style="display: flex; justify-content:center;">
+    <div class="main addPage--main">
+        <h2>Adding mission</h2>
+        <div class="hr" style="height: 1px; background-color: darkgrey; margin: 0 -20px 30px -20px;"></div>
+        <form class="addPage--form" method="post" action="">
+            <label for="text">Description of a video:</label>
+            <textarea id="text" name="text" class="addPage--textarea"></textarea>
+            <label for="img_preview">Video preview image url:</label>
+            <input id="img_preview" name="preview" type="text" class="addPage--input">
+            <label for="img_redirect">Video url:</label>
+            <input id="img_redirect" name="redirect" type="text" class="addPage--input">
+            <label for="userid">User id:</label>
+            <input id="userid" name="userid" type="number" class="addPage--input">
+            <div class="addPage--submit-div">
+                <button type="submit" class="addPage--submit">Add mission</button>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>

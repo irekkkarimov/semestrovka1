@@ -8,22 +8,38 @@ public class MissionDao : IMissionDao
     public bool CreateMission(Mission mission)
     {
         var dbContext = ServerData.Instance().DbContext;
-        return dbContext.Add(mission);
+        return dbContext.Add(mission);  
     }
 
-    public Mission GetMissionById(int id)
+    public List<Mission> GetAllMissions()
+    {
+        var dbContext = ServerData.Instance().DbContext;
+        return dbContext.Select<Mission>();
+    }
+
+    public Mission? GetMissionById(int id)
     {
         var dbContext = ServerData.Instance().DbContext;
         return dbContext.SelectById<Mission>(id);
     }
 
-    public Mission GetMissionByUserId(int userId)
+    public List<Mission> GetAllMissionsByUserId(int userId)
     {
-        throw new NotImplementedException();
+        var dbContext = ServerData.Instance().DbContext;
+        var missions = dbContext.Select<Mission>();
+        
+        return missions
+            .Where(i => i.UserId == userId)
+            .ToList();
     }
 
-    public Mission DeleteMission(int missionId)
+    public Mission? DeleteMission(int missionId)
     {
-        throw new NotImplementedException();
+        var dbContext = ServerData.Instance().DbContext;
+        var mission = dbContext.SelectById<Mission>(missionId);
+        if (mission == null)
+            return null;
+        dbContext.Delete(mission);
+        return mission;
     }
 }

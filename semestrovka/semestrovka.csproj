@@ -31,7 +31,55 @@
 
     <ItemGroup>
       <ProjectReference Include="..\MyORM\MyORM.csproj" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </ItemGroup>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

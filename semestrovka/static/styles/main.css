@@ -318,6 +318,7 @@ table {
 }
 
 .screenshot--card img {
+    width: 185px;
     border: 1px solid grey;
     margin-bottom: 5px;
 }
@@ -337,6 +338,7 @@ table {
 }
 
 .videos--card img {
+    width: 185px;
     border: 1px solid grey;
     margin-bottom: 5px;
 }
@@ -529,14 +531,27 @@ table {
     appearance: none; 
     padding-left: 5px;
     border: none;
+    background-color: grey;
+    border-radius: 5px;
+    outline: none;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+    
 .addPage--main {
     width: 300px;
     border: 2px solid grey;
     padding: 0 20px 20px 20px;
     margin-top: 100px;
     background-color: #333232;
+}
+
+.addPage--main a {
+    color: #e6e6e6;
 }
 
 .addPage--main input, .addPage--main button {

@@ -6,5 +6,5 @@ public interface IMyDataContext
     bool Update<T>(T item);
     bool Delete<T>(T item);
     List<T> Select<T>();
-    T SelectById<T>(int id);
+    T? SelectById<T>(int id) where T : class;
 }

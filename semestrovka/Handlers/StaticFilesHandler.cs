@@ -14,8 +14,8 @@ public class StaticFilesHandler : Handler
         byte[] buffer = null;
         var redirectedPath = url.LocalPath;
 
-        if (redirectedPath == "" || redirectedPath == "/")
-            redirectedPath = "/index.html";
+        // if (redirectedPath == "" || redirectedPath == "/")
+        //     redirectedPath = "/index.html";
         
         if (redirectedPath.Contains('.'))
         {
@@ -44,11 +44,11 @@ public class StaticFilesHandler : Handler
     {
         var serverData = ServerData.Instance();
         var filePath = serverData.StaticFolder + "/" + fileName;
-        Console.WriteLine(filePath);
         return ServerData.CheckIfFileExists(filePath)
             ? File.ReadAllText(filePath)
             : File.ReadAllText(serverData.NotFoundHtml);
     }
+    
     private string DetermineContentType(Uri url)
     {
         var stringUrl = url.ToString();

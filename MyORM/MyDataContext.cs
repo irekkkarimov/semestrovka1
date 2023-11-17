@@ -153,7 +153,8 @@ public class MyDataContext : IMyDataContext
         return result;
     }
 
-    public T SelectById<T>(int id)
+    public T? SelectById<T>(int id)
+    where T : class
     {
         var result = new List<T>();
         
@@ -187,6 +188,8 @@ public class MyDataContext : IMyDataContext
             }
         }
 
-        return result[0];
+        return result.Any()
+            ? result[0] 
+            : null;
     }
 }

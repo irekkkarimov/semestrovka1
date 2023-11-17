@@ -12,6 +12,12 @@ public class UserDao : IUserDao
         return dbContext.Add(user);
     }
 
+    public List<User> GetUsers()
+    {
+        var dbContext = ServerData.Instance().DbContext;
+        return dbContext.Select<User>();
+    }
+    
     public User GetUserById(int id)
     {
         var dbContext = ServerData.Instance().DbContext;

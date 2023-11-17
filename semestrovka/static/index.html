@@ -13,8 +13,8 @@
         <div class="header" >
             <div class="header--top">
                 <div class="header--top--buttons">
-                    <button onclick="location.href = '/login.html'" class="sign_in">SIGN IN</button>
-                    <button onclick="location.href = '/registration.html'" class="register">REGISTER</button>
+                    <button onclick="location.href = '/admin/login'" class="sign_in">SIGN IN</button>
+                    <button onclick="location.href = '/admin/registration'" class="register">REGISTER</button>
                 </div>
             </div>
             <div class="header--bottom d-flex flex-row">
@@ -61,7 +61,10 @@
                                 </p>
                             </div>
                             <div class="main--first-line--right">
-                                <div class="main--first-line--right--lang">
+                                <div class="main--first-line--right--lang d-flex flex-row admin-panel--buttons">
+                                    <button
+                                            onclick="location.href = '/admin'"
+                                    >Admin Panel</button>
                                     <p>English</p>
                                 </div>
                             </div>
@@ -310,55 +313,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="Mission/MissionPage/1" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
-                            <tr>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="#" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
-                            <tr>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="#" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
-                            <tr>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="#" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
-                            <tr>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="#" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
-                            <tr>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="#" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
-                            <tr>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="#" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
+                            MISSION_LIST_TR
                             </tbody>
                         </table>
                     </div>
@@ -378,58 +333,12 @@
                         <h4>Promotional Images</h4>
                         <div class="gallery--promotional"
                              style="width: 90%; display: flex; flex-wrap: wrap; margin-left: 20px; margin-bottom: 40px;">
-                            <div class="screenshot--card">
-                                <img src="./assets/screenshot_1.webp" alt="Picture" />
-                                <p>Dramatic conclusion screenshot.</p>
-                            </div>
-                            <div class="screenshot--card">
-                                <img src="./assets/screenshot_1.webp" alt="Picture" />
-                                <p>Dramatic conclusion screenshot.</p>
-                            </div>
-                            <div class="screenshot--card">
-                                <img src="./assets/screenshot_1.webp" alt="Picture" />
-                                <p>Dramatic conclusion screenshot.</p>
-                            </div>
-                            <div class="screenshot--card">
-                                <img src="./assets/screenshot_1.webp" alt="Picture" />
-                                <p>Dramatic conclusion screenshot.</p>
-                            </div>
-                            <div class="screenshot--card">
-                                <img src="./assets/screenshot_1.webp" alt="Picture" />
-                                <p>Dramatic conclusion screenshot.</p>
-                            </div>
-                            <div class="screenshot--card">
-                                <img src="./assets/screenshot_1.webp" alt="Picture" />
-                                <p>Dramatic conclusion screenshot.</p>
-                            </div>
+                            SCREENSHOT_LIST
                         </div>
                         <h4 style="margin-bottom: 45px;">Videos</h4>
                         <div class="gallery--videos"
                              style="width: 90%; display: flex; flex-wrap: wrap; margin-left: 20px; margin-bottom: 100px;">
-                            <div class="videos--card">
-                                <img src="./assets/video_1.webp" alt="Picture" />
-                                <p>HITMAN 3 - Announcement Trailer</p>
-                            </div>
-                            <div class="videos--card">
-                                <img src="./assets/video_1.webp" alt="Picture" />
-                                <p>HITMAN 3 - Announcement Trailer</p>
-                            </div>
-                            <div class="videos--card">
-                                <img src="./assets/video_1.webp" alt="Picture" />
-                                <p>HITMAN 3 - Announcement Trailer</p>
-                            </div>
-                            <div class="videos--card">
-                                <img src="./assets/video_1.webp" alt="Picture" />
-                                <p>HITMAN 3 - Announcement Trailer</p>
-                            </div>
-                            <div class="videos--card">
-                                <img src="./assets/video_1.webp" alt="Picture" />
-                                <p>HITMAN 3 - Announcement Trailer</p>
-                            </div>
-                            <div class="videos--card">
-                                <img src="./assets/video_1.webp" alt="Picture" />
-                                <p>HITMAN 3 - Announcement Trailer</p>
-                            </div>
+                            VIDEO_LIST
                         </div>
                     </div>
                     <div class="references">
@@ -559,8 +468,8 @@
 </body>
 </html>
 
-<script>
-    $(document).ready(function() {
-        $(".content-right").css("height", $(".content-left").height());
-    });
-</script>
+<!--<script>-->
+<!--    $(document).ready(function() {-->
+<!--        $(".content-right").css("height", $(".content-left").height());-->
+<!--    });-->
+<!--</script>-->

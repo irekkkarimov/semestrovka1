@@ -2,14 +2,22 @@ using System.Net.Http.Json;
 using semestrovka.Attributes;
 using semestrovka.DAOs;
 using semestrovka.DTOs;
+using semestrovka.Handlers;
 using semestrovka.Mapper;
 using semestrovka.utils;
 
 namespace semestrovka.Controllers;
 
-[Controller("User")]
+// [Controller("User")]
 public class UserController
 {
+    [Get("Login")]
+    public static ResponseMessage Login()
+    {
+        var page = StaticFilesHandler.FetchStaticFile("login.html");
+        return new ResponseMessage(200, page);
+    }
+    
     [Post("Login")]
     public static ResponseMessage Login(string email, string password)
     {
@@ -22,13 +30,21 @@ public class UserController
         var userDao = new UserDao();
         var userFromDb = userDao.GetUserByEmail(user);
         if (user.Email == userFromDb.Email)
-            return user.Password == userFromDb.Password ? 
-                new ResponseMessage(200, "Authorized") 
-                : new ResponseMessage(404, "Wrong password");
+            if (user.Password == userFromDb.Password)
+            {
+                return new ResponseMessage(200, "setcookie token 123");
+            }
 
         return new ResponseMessage(404, "Wrong email");
     }
 
+    [Get("Registration")]
+    public static ResponseMessage Registration()
+    {
+        var page = StaticFilesHandler.FetchStaticFile("registration.html");
+        return new ResponseMessage(200, page);
+    }
+    
     [Post("Registration")]
     public static ResponseMessage Registration(string email, string password)
     {

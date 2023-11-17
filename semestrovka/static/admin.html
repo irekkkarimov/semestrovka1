@@ -10,32 +10,13 @@
 </head>
 <body>
 <div class="root">
-    <div class="header" >
-        <div class="header--top">
-            <div class="header--top--buttons">
-                <button onclick="location.href = '/login.html'" class="sign_in">SIGN IN</button>
-                <button onclick="location.href = '/registration.html'" class="register">REGISTER</button>
-            </div>
-        </div>
+    <div class="header" style="margin-top: 68px;">
         <div class="header--bottom d-flex flex-row">
-            <img src="./assets/hitman_whitelogo.webp"  alt="hitman_wiki"/>
+            <img src="./assets/hitman_whitelogo.webp"  alt="hitman_wiki" onclick="location.href = '/'"/>
             <div class="header--bottom--hyperlinks d-flex flex-column">
                 <div class="header--bottom--hyperlinks--top d-flex flex-row">
-                    <a href="#" class="header--bottom--hyperlinks--top--self"
+                    <a href="/" class="header--bottom--hyperlinks--top--self"
                        style="font-size: 24px; font-weight: 500; margin-left: 10px;">Hitman Wiki</a>
-                    <div class="header--bottom--hyperlinks--top--buttons d-flex flex-row">
-                        <div class="header--bottom--hyperlinks--top--buttons--page-counter d-flex flex-column"
-                             style="line-height: 13px; margin-right: 5px; align-items: end;">
-                            <span class="page-counter__value" style="font-size: 19px; line-height: 16px; font-weight: bold;">4360</span>
-                            <span class="page-counter__label" style="font-size: 13px; margin-bottom: 0; font-weight: bold;">PAGES</span>
-
-                        </div>
-                        <div class="header--bottom-hyperlinks--top--buttons--cells d-flex flex-row">
-                            <div class="hyperlinks--cells--cell"></div>
-                            <div class="hyperlinks--cells--cell"></div>
-                            <div class="hyperlinks--cells--cell"></div>
-                        </div>
-                    </div>
                 </div>
                 <div class="header--bottom--hyperlinks--bottom d-flex flex-row">
                     <div class="hyperlinks--explore">EXPLORE</div>
@@ -53,7 +34,11 @@
                 <div class="main">
                     <div class="main--header d-flex flex-row" style="align-items: center; justify-content:space-between;">
                         <h1 style="margin: 0;">Admin Panel</h1>
-                        <div class="main--header--top--hyperlinks d-flex flex-row">
+                        <div class="main--header--top--hyperlinks d-flex flex-row admin-panel--buttons">
+                            <button
+                                    onclick="fetch('http://localhost:2323/admin/logout')
+                                    .then(() => location.href = '/')"
+                            >Log out</button>
                             <div><p><a class="a-green">Go to HITMAN III</a></p></div>
                         </div>
                     </div>
@@ -65,10 +50,10 @@
                         <div class="missions--header d-flex flex-row" style="justify-content: space-between; align-items: center;">
                             <h2>Missions</h2>
                             <div class="missions--header--right d-flex flex-row admin-panel--buttons">
-                                <button>Add a mission</button>
-                                <form class="admin-panel--form">
+                                <button onclick="location.href = '/admin/addmission'">Add a mission</button>
+                                <form class="admin-panel--form" method="post" action="admin/deletemission">
                                     <button>Delete Mission</button>
-                                    <input type="number">
+                                    <input type="number" name="id" required>
                                 </form>
                             </div>
                         </div>
@@ -82,62 +67,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="#" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="#" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="#" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="#" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="#" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="#" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td><img src="./assets/dubai.webp"></td>
-                                <td><a href="#" class="a-green">On Top of the World</a></td>
-                                <td>Asia</td>
-                                <td><a href="#" class="a-green">United Arab Emirates</a></td>
-                                <td><a href="#" class="a-green">Dubai</a></td>
-                            </tr>
+                            MISSION_LIST_TR
                             </tbody>
                         </table>
                     </div>
@@ -146,39 +76,16 @@
                         <div class="screenshots--header d-flex flex-row" style="justify-content: space-between; align-items: center;">
                             <h2>Screenshots</h2>
                             <div class="screenshots--header--right d-flex flex-row admin-panel--buttons">
-                                <button>Add a screenshot</button>
-                                <form class="admin-panel--form">
+                                <button onclick="location.href = '/admin/addscreenshot'">Add a screenshot</button>
+                                <form class="admin-panel--form" method="post" action="admin/deletescreenshot">
                                     <button>Delete Screenshot</button>
-                                    <input type="number">
+                                    <input type="number" name="id" required>
                                 </form>
                             </div>
                         </div>
                         <div class="gallery--promotional"
                              style="width: 90%; display: flex; flex-wrap: wrap; margin-left: 20px; margin-bottom: 40px;">
-                            <div class="screenshot--card">
-                                <img src="./assets/screenshot_1.webp" alt="Picture" />
-                                <p><span>[ 1 ]</span> Dramatic conclusion screenshot.</p>
-                            </div>
-                            <div class="screenshot--card">
-                                <img src="./assets/screenshot_1.webp" alt="Picture" />
-                                <p><span>[ 1 ]</span> Dramatic conclusion screenshot.</p>
-                            </div>
-                            <div class="screenshot--card">
-                                <img src="./assets/screenshot_1.webp" alt="Picture" />
-                                <p><span>[ 1 ]</span> Dramatic conclusion screenshot.</p>
-                            </div>
-                            <div class="screenshot--card">
-                                <img src="./assets/screenshot_1.webp" alt="Picture" />
-                                <p><span>[ 1 ]</span> Dramatic conclusion screenshot.</p>
-                            </div>
-                            <div class="screenshot--card">
-                                <img src="./assets/screenshot_1.webp" alt="Picture" />
-                                <p><span>[ 1 ]</span> Dramatic conclusion screenshot.</p>
-                            </div>
-                            <div class="screenshot--card">
-                                <img src="./assets/screenshot_1.webp" alt="Picture" />
-                                <p><span>[ 1 ]</span> Dramatic conclusion screenshot.</p>
-                            </div>
+                            SCREENSHOT_LIST
                         </div>
                     </div>
                     <hr>
@@ -186,39 +93,16 @@
                         <div class="missions--header d-flex flex-row" style="justify-content: space-between; align-items: center;">
                             <h2>Videos</h2>
                             <div class="screenshots--header--right d-flex flex-row admin-panel--buttons">
-                                <button>Add a video</button>
-                                <form class="admin-panel--form">
+                                <button onclick="location.href = './admin/addvideo'">Add a video</button>
+                                <form class="admin-panel--form" method="post" action="admin/deletevideo">
                                     <button>Delete video</button>
-                                    <input type="number">
+                                    <input type="number" name="id" required>
                                 </form>
                             </div>
                         </div>
                         <div class="gallery--videos"
                              style="width: 90%; display: flex; flex-wrap: wrap; margin-left: 20px; margin-bottom: 100px;">
-                            <div class="videos--card">
-                                <img src="./assets/video_1.webp" alt="Picture" />
-                                <p><span>[ 1 ]</span> HITMAN 3 - Announcement Trailer</p>
-                            </div>
-                            <div class="videos--card">
-                                <img src="./assets/video_1.webp" alt="Picture" />
-                                <p><span>[ 1 ]</span> HITMAN 3 - Announcement Trailer</p>
-                            </div>
-                            <div class="videos--card">
-                                <img src="./assets/video_1.webp" alt="Picture" />
-                                <p><span>[ 1 ]</span> HITMAN 3 - Announcement Trailer</p>
-                            </div>
-                            <div class="videos--card">
-                                <img src="./assets/video_1.webp" alt="Picture" />
-                                <p><span>[ 1 ]</span> HITMAN 3 - Announcement Trailer</p>
-                            </div>
-                            <div class="videos--card">
-                                <img src="./assets/video_1.webp" alt="Picture" />
-                                <p><span>[ 1 ]</span> HITMAN 3 - Announcement Trailer</p>
-                            </div>
-                            <div class="videos--card">
-                                <img src="./assets/video_1.webp" alt="Picture" />
-                                <p><span>[ 1 ]</span> HITMAN 3 - Announcement Trailer</p>
-                            </div>
+                            VIDEO_LIST
                         </div>
                     </div>
                 </div>
