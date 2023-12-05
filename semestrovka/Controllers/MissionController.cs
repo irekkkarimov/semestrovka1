@@ -1,3 +1,4 @@
+using System.Net;
 using semestrovka.Attributes;
 using semestrovka.DAOs;
 using semestrovka.DTOs;
@@ -10,9 +11,16 @@ namespace semestrovka.Controllers;
 [Controller("Mission")]
 public class MissionController
 {
+    private readonly HttpListenerContext _context;
+
+    public MissionController(HttpListenerContext context)
+    {
+        _context = context;
+    }
+
 
     [Get("MissionPage")]
-    public static ResponseMessage MissionPage(int id)
+    public ResponseMessage MissionPage(int id)
     {
         var missionDao = new MissionDao();
         var mission = missionDao.GetMissionById(id);
