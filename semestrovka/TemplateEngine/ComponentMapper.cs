@@ -2,7 +2,7 @@ using semestrovka.Models;
 
 namespace semestrovka.TemplateEngine;
 
-public class ComponentMapper
+public static class ComponentMapper
 {
     /// <summary>
     /// Maps Mission into html element

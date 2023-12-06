@@ -27,10 +27,12 @@ public class AdminController
     [Get("Index")]
     public ResponseMessage Index(HttpListenerContext context)
     {
-        var cookie = context.Request.Cookies.First(i => i.Name == "Authorization");
-        var users = new UserDao().GetUsers().Select(i => new { i.Id, token = i.Email + i.Password });
-        var userId = users.First(i => i.token == cookie.Value).Id;
-        var mappedPage = PageMapper.MapAdminPage(userId);
+        var userId = _cookiesHandlerService
+            .FetchTokenFromCookiesAndGetUserId(_context, _authService, new UserDao());
+        if (!userId.Item1)
+            return new ResponseMessage(401, "Not authorized");
+        
+        var mappedPage = PageMapper.MapAdminPage(userId.Item2);
         return mappedPage != ""
             ? new ResponseMessage(200, mappedPage)
             : new ResponseMessage(404, "Couldn't load admin page");
@@ -46,6 +48,11 @@ public class AdminController
     [Post("Login")]
     public ResponseMessage Login(string email, string password)
     {
+        var regex = new Regex("([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+)");
+
+        if (!regex.IsMatch(email))
+            return new ResponseMessage(401, "Wrong email format");
+        
         var userToAuthorize = new UserDto
         {
             Email = email,
@@ -62,7 +69,7 @@ public class AdminController
                 return new ResponseMessage(200, $"setcookie Authorization {token}");
             }
 
-        return new ResponseMessage(404, "Wrong email");
+        return new ResponseMessage(404, "Wrong email or password");
     }
 
     [Get("Logout")]
@@ -83,7 +90,7 @@ public class AdminController
     {
         var regex = new Regex("([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+)");
 
-        if (!regex.IsMatch(email))
+        if (!regex.IsMatch(email) || password.Length < 8)
             return new ResponseMessage(401, "Wrong email");
         
         var userToRegister = new UserDto
@@ -119,6 +126,12 @@ public class AdminController
         string url
     )
     {
+        var urlRegex = new Regex(
+            @"(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?");
+
+        if (!urlRegex.IsMatch(url))
+            return new ResponseMessage(400, "Wrong url");
+        
         var missionReceived = new MissionAddingDto
         {
             Title = title,
@@ -128,7 +141,7 @@ public class AdminController
             Description = description,
             Url = url
         };
-
+        
         var mission = MissionMapper.MapMissionAddingDtoToMission(missionReceived);
         var missionDao = new MissionDao();
         var userIdTuple = _cookiesHandlerService
@@ -149,15 +162,17 @@ public class AdminController
     public ResponseMessage DeleteMission(int id)
     {
         var missionDao = new MissionDao();
+        var mission = missionDao.GetMissionById(id);
         
-        var tokenTuple = _cookiesHandlerService.FetchTokenFromCookies(_context);
-        if (!tokenTuple.Item1)
-            return new ResponseMessage(404, "Something went wrong");
+        var userIdTuple = _cookiesHandlerService
+            .FetchTokenFromCookiesAndGetUserId(_context, _authService, new UserDao());
+        if (!userIdTuple.Item1)
+            return new ResponseMessage(401, "Not authorized");
+
+        if (userIdTuple.Item2 != mission.UserId)
+            return new ResponseMessage(403, "You can't delete this mission");
         
-        if (!_authService.ValidateToken(new UserDao(), tokenTuple.Item2))
-            return new ResponseMessage(403, "You do not have access for that");
-        
-        var mission = missionDao.DeleteMission(id);
+        missionDao.DeleteMission(id);
         return new ResponseMessage(200, mission?.Title ?? "");
     }
 
@@ -177,12 +192,18 @@ public class AdminController
         string text,
         string url)
     {
+        var urlRegex = new Regex(
+            @"(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?");
+
+        if (!urlRegex.IsMatch(url))
+            return new ResponseMessage(400, "Wrong url");
+        
         var screenshotReceived = new ScreenshotCardAddingDto
         {
             Text = text,
             Url = url
         };
-
+        
         var screenshotCard = ScreenshotCardMapper
             .MapScreenshotCardAddingDtoToScreenshotCard(screenshotReceived);
         var screenshotCardDao = new ScreenshotCardDao();
@@ -233,6 +254,12 @@ public class AdminController
         string preview,
         string redirect)
     {
+        var urlRegex = new Regex(
+            @"(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?");
+
+        if (!urlRegex.IsMatch(preview) || !urlRegex.IsMatch(redirect))
+            return new ResponseMessage(400, "Wrong url");
+        
         var receivedVideo = new VideoCardAddingDto
         {
             Text = text,

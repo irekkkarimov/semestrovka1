@@ -1,11 +1,9 @@
 using System.Net;
-using System.Net.Http.Json;
 using System.Reflection;
 using System.Text;
-using System.Threading.Channels;
 using semestrovka.Attributes;
+using semestrovka.CustomExceptions;
 using semestrovka.DAOs;
-using semestrovka.Mapper;
 using semestrovka.Services;
 using semestrovka.TemplateEngine;
 using semestrovka.utils;
@@ -48,6 +46,10 @@ public class ControllerHandler : Handler
 
                 // Passing action execution to different method
                 HandleDifferentMethods(context, methodType, controllerType, controller, method);
+            }
+            catch (CustomException e)
+            {
+                WriteErrorOutputAsync(context, e);
             }
             catch (Exception e)
             {
@@ -122,6 +124,10 @@ public class ControllerHandler : Handler
         using (var sr = new StreamReader(request.InputStream))
         {
             var tempData = sr.ReadToEnd();
+
+            if (String.IsNullOrEmpty(tempData))
+                return Array.Empty<string>();
+            
             var decoded = WebUtility
                 .UrlDecode(tempData);
 
@@ -151,11 +157,13 @@ public class ControllerHandler : Handler
     private object[]? ParseToMethodParams(MethodInfo method, string[] formData)
     {
         var methodParams = method.GetParameters();
+        if (methodParams.Length != formData.Length)
+            throw new InvalidParametersException("Parameters are not suitable for the action");
+        
         if (methodParams.Any())
             return methodParams.Select((p, i) => Convert.ChangeType(formData[i], p.ParameterType))
                 .ToArray();
-        else
-            return null;
+        return null;
     }
 
     private string[] ParseUrlPath(HttpListenerRequest request)
@@ -187,7 +195,7 @@ public class ControllerHandler : Handler
             RedirectToHomePage(context);
         }
         else
-            await WriteOutputHtml(context, output.Message);
+            await WriteOutputHtmlAsync(context, output.Message);
     }
 
     private async void RedirectToHomePage(HttpListenerContext context)
@@ -203,7 +211,7 @@ public class ControllerHandler : Handler
         await output.FlushAsync();
     }
 
-    private async void WriteOutputSwitchMethods(HttpListenerContext context, string methodType,
+    private async void WriteOutputSwitchMethodsAsync(HttpListenerContext context, string methodType,
         ResponseMessage responseMessage, string redirectionUrl = "")
     {
         if (responseMessage.Message.StartsWith("setcookie"))
@@ -229,18 +237,18 @@ public class ControllerHandler : Handler
             case "Post":
             case "post":
             {
-                await WriteOutput(context, responseMessage);
+                await WriteOutputAsync(context, responseMessage);
                 break;
             }
             case "GET":
             case "Get":
             case "get":
-                await WriteOutputHtml(context, responseMessage.Message);
+                await WriteOutputHtmlAsync(context, responseMessage.Message);
                 break;
         }
     }
 
-    private async Task WriteOutput(HttpListenerContext context, ResponseMessage responseMessage)
+    private async Task WriteOutputAsync(HttpListenerContext context, ResponseMessage responseMessage)
     {
         var response = context.Response;
         var content = $"<h1>Status Code: {responseMessage.StatusCode}</h1>" +
@@ -256,10 +264,22 @@ public class ControllerHandler : Handler
         await output.FlushAsync();
     }
 
-    private async Task WriteOutputHtml(HttpListenerContext context, string content)
+    private async Task WriteOutputHtmlAsync(HttpListenerContext context, string content)
     {
         var response = context.Response;
         var buffer = Encoding.UTF8.GetBytes(content);
+        response.ContentType = "text/html; charset=uts-8";
+        response.ContentLength64 = buffer.Length;
+        await using Stream output = response.OutputStream;
+
+        await output.WriteAsync(buffer);
+        await output.FlushAsync();
+    }
+
+    private async Task WriteErrorOutputAsync(HttpListenerContext context, CustomException exception)
+    {
+        var response = context.Response;
+        var buffer = Encoding.UTF8.GetBytes(exception.Message);
         response.ContentType = "text/html; charset=uts-8";
         response.ContentLength64 = buffer.Length;
         await using Stream output = response.OutputStream;
@@ -288,7 +308,7 @@ public class ControllerHandler : Handler
         }
         else
         {
-            object? methodResponse = null;
+            ResponseMessage methodResponse = null;
             switch (methodType)
             {
                 case "post":
@@ -313,9 +333,18 @@ public class ControllerHandler : Handler
 
             if (methodResponse != null)
             {
-                WriteOutputSwitchMethods(context,
+                switch (methodResponse.StatusCode)
+                {
+                    case 200: break;
+                    case 401:
+                    case 403: throw new ForbiddenException(methodResponse.Message);
+                    case 404: throw new NotFoundException(methodResponse.Message);
+                    case 500: throw new InternalException(methodResponse.Message);
+                }
+                
+                WriteOutputSwitchMethodsAsync(context,
                     methodType,
-                    (ResponseMessage)methodResponse,
+                    methodResponse,
                     isGetMethod
                         ? ""
                         : $"http://localhost:2323/{controllerAttributeName.ToLower()}");
@@ -334,6 +363,9 @@ public class ControllerHandler : Handler
         }
         else
         {
+            if (method.GetParameters().Any())
+                throw new InvalidParametersException("Action requires arguments, but nothing was received");
+            
             methodResponse = method.Invoke(controller, Array.Empty<object>());
         }
 
