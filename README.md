@@ -1,7 +1,7 @@
 # Hitman 3 Fandom copy on vanilla C# using HttpListener
 
 **Used technologies:**\
-None\
+None
 
 **Implemented things:**\
 MyORM (For Postgres)\
