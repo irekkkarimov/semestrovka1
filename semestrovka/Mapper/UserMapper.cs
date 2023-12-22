@@ -10,6 +10,7 @@ public class UserMapper
         return new UserDto
         {
             Email = user.Email,
+            Name = user.Name,
             Password = user.Password
         };
     }
@@ -20,6 +21,7 @@ public class UserMapper
         {
             Id = 0,
             Email = userDto.Email,
+            Name = userDto.Name,
             Password = userDto.Password
         };
     }

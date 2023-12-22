@@ -31,7 +31,7 @@ public class AdminController
             .FetchTokenFromCookiesAndGetUserId(_context, _authService, new UserDao());
         if (!userId.Item1)
             return new ResponseMessage(401, "Not authorized");
-        
+
         var mappedPage = PageMapper.MapAdminPage(userId.Item2);
         return mappedPage != ""
             ? new ResponseMessage(200, mappedPage)
@@ -52,10 +52,11 @@ public class AdminController
 
         if (!regex.IsMatch(email))
             return new ResponseMessage(401, "Wrong email format");
-        
+
         var userToAuthorize = new UserDto
         {
             Email = email,
+            Name = "",
             Password = password
         };
         var user = UserMapper.MapUserDtoToUser(userToAuthorize);
@@ -86,16 +87,17 @@ public class AdminController
     }
 
     [Post("Registration")]
-    public ResponseMessage Registration(string email, string password)
+    public ResponseMessage Registration(string email, string name, string password)
     {
         var regex = new Regex("([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+)");
 
         if (!regex.IsMatch(email) || password.Length < 8)
             return new ResponseMessage(401, "Wrong email");
-        
+
         var userToRegister = new UserDto
         {
             Email = email,
+            Name = name,
             Password = password
         };
         var user = UserMapper.MapUserDtoToUser(userToRegister);
@@ -131,7 +133,7 @@ public class AdminController
 
         if (!urlRegex.IsMatch(url))
             return new ResponseMessage(400, "Wrong url");
-        
+
         var missionReceived = new MissionAddingDto
         {
             Title = title,
@@ -141,17 +143,17 @@ public class AdminController
             Description = description,
             Url = url
         };
-        
+
         var mission = MissionMapper.MapMissionAddingDtoToMission(missionReceived);
         var missionDao = new MissionDao();
         var userIdTuple = _cookiesHandlerService
             .FetchTokenFromCookiesAndGetUserId(_context, _authService, new UserDao());
-        
+
         if (!userIdTuple.Item1)
             return new ResponseMessage(404, "Something went wrong");
 
         mission.UserId = userIdTuple.Item2;
-        
+
         return missionDao.CreateMission(mission)
             ? new ResponseMessage(200, "Mission was successfully added")
             : new ResponseMessage(404, "Something went wrong");
@@ -163,7 +165,7 @@ public class AdminController
     {
         var missionDao = new MissionDao();
         var mission = missionDao.GetMissionById(id);
-        
+
         var userIdTuple = _cookiesHandlerService
             .FetchTokenFromCookiesAndGetUserId(_context, _authService, new UserDao());
         if (!userIdTuple.Item1)
@@ -171,7 +173,7 @@ public class AdminController
 
         if (userIdTuple.Item2 != mission.UserId)
             return new ResponseMessage(403, "You can't delete this mission");
-        
+
         missionDao.DeleteMission(id);
         return new ResponseMessage(200, mission?.Title ?? "");
     }
@@ -197,24 +199,24 @@ public class AdminController
 
         if (!urlRegex.IsMatch(url))
             return new ResponseMessage(400, "Wrong url");
-        
+
         var screenshotReceived = new ScreenshotCardAddingDto
         {
             Text = text,
             Url = url
         };
-        
+
         var screenshotCard = ScreenshotCardMapper
             .MapScreenshotCardAddingDtoToScreenshotCard(screenshotReceived);
         var screenshotCardDao = new ScreenshotCardDao();
         var userIdTuple = _cookiesHandlerService
             .FetchTokenFromCookiesAndGetUserId(_context, _authService, new UserDao());
-        
+
         if (!userIdTuple.Item1)
             return new ResponseMessage(404, "Something went wrong");
 
         screenshotCard.UserId = userIdTuple.Item2;
-        
+
         return screenshotCardDao.CreateScreenshotCard(screenshotCard)
             ? new ResponseMessage(200, "Screenshot was successfully added")
             : new ResponseMessage(404, "Something went wrong");
@@ -225,14 +227,14 @@ public class AdminController
     public ResponseMessage DeleteScreenshot(int id)
     {
         var screenshotCardDao = new ScreenshotCardDao();
-        
+
         var tokenTuple = _cookiesHandlerService.FetchTokenFromCookies(_context);
         if (!tokenTuple.Item1)
             return new ResponseMessage(404, "Something went wrong");
-        
+
         if (!_authService.ValidateToken(new UserDao(), tokenTuple.Item2))
             return new ResponseMessage(403, "You do not have access for that");
-        
+
         var screenshotCard = screenshotCardDao.DeleteScreenshotCard(id);
         return new ResponseMessage(200, screenshotCard?.Text ?? "");
     }
@@ -259,7 +261,7 @@ public class AdminController
 
         if (!urlRegex.IsMatch(preview) || !urlRegex.IsMatch(redirect))
             return new ResponseMessage(400, "Wrong url");
-        
+
         var receivedVideo = new VideoCardAddingDto
         {
             Text = text,
@@ -269,15 +271,15 @@ public class AdminController
 
         var videoCard = VideoCardMapper.MapVideoCardAddingDtoToVideoCard(receivedVideo);
         var videoCardDao = new VideoCardDao();
-        
+
         var userIdTuple = _cookiesHandlerService
             .FetchTokenFromCookiesAndGetUserId(_context, _authService, new UserDao());
-        
+
         if (!userIdTuple.Item1)
             return new ResponseMessage(404, "Something went wrong");
 
         videoCard.UserId = userIdTuple.Item2;
-        
+
         return videoCardDao.CreateVideoCard(videoCard)
             ? new ResponseMessage(200, "Screenshot was successfully added")
             : new ResponseMessage(404, "Something went wrong");
@@ -292,10 +294,10 @@ public class AdminController
         var tokenTuple = _cookiesHandlerService.FetchTokenFromCookies(_context);
         if (!tokenTuple.Item1)
             return new ResponseMessage(404, "Something went wrong");
-        
+
         if (!_authService.ValidateToken(new UserDao(), tokenTuple.Item2))
             return new ResponseMessage(403, "You do not have access for that");
-        
+
         var videoCard = videoCardDao.DeleteVideoCard(id);
         return new ResponseMessage(200, videoCard?.Text ?? "");
     }

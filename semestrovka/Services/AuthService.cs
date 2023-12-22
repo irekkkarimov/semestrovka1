@@ -14,6 +14,7 @@ public class AuthService : IAuthService
     public bool ValidateToken(IUserDao userDao, string token)
     {
         var users = userDao.GetUsers();
+        
         return users.Select(user =>
                 (user.Email + user.Password))
             .Any(userToken => token == userToken);

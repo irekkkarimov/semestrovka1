@@ -29,6 +29,7 @@ public class UserDao : IUserDao
         var dbContext = ServerData.Instance().DbContext;
         var users = dbContext.Select<User>();
         var userByEmail = users.FirstOrDefault(i => i.Email == user.Email);
+        
         return userByEmail ?? new User
         {
             Id = 0,
